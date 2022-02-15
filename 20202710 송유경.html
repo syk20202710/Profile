@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">  
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
+ <style>
+
+
+.container{
+            margin-top: 84px;
+           /* margin-left: 50px;*/
+           margin-left: 90px;
+           margin-right: 90px;
+          overflow: hidden;
+        
+        }
+        .top_bar{
+            background:rgb(255, 255, 255);
+            position: fixed;
+            left:0; top: 0; right:0;
+            height: 85px;
+            z-index: 1;
+            
+        }
+        .left_bar{
+            background: rgb(255, 231, 127);
+            position:  fixed;
+            left:0; top:84px; bottom:0;
+            width: 90px;
+            overflow: hidden;
+        }
+    .right_bar{
+         background: rgb(255, 231, 127);
+            position:  fixed;
+            right:0; top:84px; bottom:0;
+            width: 90px;
+            overflow: hidden;
+}
+        img{
+            margin-right: 5px;;
+        }
+        h1{
+            color: rgb(25, 148, 0)
+            ;   
+            font-family: 'Lobster', cursive;
+            text-shadow: 4.5px 0px 0px rgb(0, 0, 0);
+                }
+        .name{font-family: 'Stylish', sans-serif;
+              font-size: 25px;
+                }
+    table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+    text-align: center;
+    border-collapse: collapse;
+      border-top: 3px solid rgb(98, 135, 150);
+  }
+     table th {
+      color: rgb(55, 53, 173);
+      background: #daf3ff;
+      text-align: center;
+    }
+
+     th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+  }
+
+     h2{
+         font-family: 'Jua', sans-serif;
+        }
+
+
+        input[id="menuicon"]{
+            display:none;
+        }
+input[id="menuicon"] + label {
+    display: block;
+    width:60px;
+    height:40px;
+    position: relative;
+    cursor: pointer;
+}
+
+input[id="menuicon"] + label span{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    border-radius: 30px;
+    background: #000;
+    transition:all .35s;
+}
+
+input[id="menuicon"] + label span:nth-child(1){
+    top:0;
+}
+input[id="menuicon"] + label span:nth-child(2){
+    top:50%;
+    transform:translateY(-50%);
+}
+input[id="menuicon"] + label span:nth-child(3){
+    bottom:0;
+}
+input[id="menuicon"] + label {z-index:3;}
+input[id="menuicon"] + label span{background: rgb(2, 2, 3);}
+
+input[id="menuicon"]:checked + label span:nth-child(1){
+    top:50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+input[id="menuicon"]:checked + label span:nth-child(2){
+    opacity: 0;}
+input[id="menuicon"]:checked + label span:nth-child(3){
+    bottom:50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+
+    div[class="sidebar"]{
+    width: 400px;
+    height:100%;
+     background:rgb(0, 0, 0); 
+     position:fixed; 
+     top:0; 
+     right:-400px; 
+     z-index:2; 
+     transition: all .35;}
+
+    input[id="menuicon"]:checked + label + div{
+        right:0;}
+        
+    input[id="menuicon"]+label{
+        display:block;
+        width:60px;
+        height:50px;
+        position:fixed;
+        right:0;
+        top: 10px;
+        transition:all .35s;
+        cursor:pointer;
+    }
+    input[input="menuicon"] :checked+ label{
+        z-index:3;
+        right:400px;
+    }
+
+       div[class="sidebar"] {
+            width:400px;
+            height: 100%;
+            background:rgb(235, 209, 170);
+            position:fixed;
+            top:0;
+            right:-400px;
+            z-index:2;
+            transition: all .35s;
+            opacity: 0.9;
+        }
+        input[id="menuicon"]:checked + label + div {
+            right:0;
+        } 
+
+
+        .ai{ background-color: rgb(213, 253, 186); }
+        table {
+                width: 800px;}
+        .web{ background-color: rgb(228, 118, 118);}
+        .movie{ background-color: rgb(253, 255, 113);}
+        .env{ background-color: skyblue;}
+        .java{ background-color: rgb(255, 196, 87);}
+        .math{ background-color: rgb(199, 197, 197);}
+        .program{ background-color: rgb(148, 199, 148);}
+        .data{ background-color: rgb(185, 152, 228);}
+
+           #center{position:relative;
+            left: 25%;}
+        
+    </style>
+ <script>
+     function query(){
+         var ret=confirm("인스타를 들어가시겠습니까?");
+         return ret;
+     }
+
+    function load(){
+        var select=document.getElementById("favorite-select");
+        window.location=select.options[select.selectedIndex].value;
+    }
+    function change(){
+        var spanArray = document.getElementsByTagName("span");
+        for(var i=0; i<spanArray.length;i++){
+            var span = spanArray[i];
+            span.style.color="rgb(255, 196, 87)";
+            span.style.fontSize="18px"
+        }
+    }
+ </script>
+</head>
+<body>
+    <div class="top_bar"><header><h1 style="text-align:center;"><i onmouseover='this.style.fontSize="25pt"';
+        onmouseout='this.style.fontSize="32px"';>YuGyeong's Profile</i></h1></header> 
+        <hr>
+        <br></div>
+    <div class="left_bar"></div>
+    <div class="right_bar"></div>
+    <div class="container">
+    
+    <article id="center">
+    <div>
+         <img src="Images/ME.jpg" alt= "유경이"width="330"align=left>
+          <br>
+          
+         <div class="name"><b onmouseover="this.style.backgroundColor='rgb(255, 231, 127)'"
+                            onmouseout="this.style.backgroundColor='white'">원광대학교 컴퓨터소프트웨어공학과 20학번 송유경</b></div> 
+            
+                <p>&nbsp;&nbsp;<b>학교:</b> 원광대학교</p>
+                <p>&nbsp;&nbsp;<b>사는 곳:</b> 익산</p>
+                <p>&nbsp;&nbsp;<b>성별:</b> 여자</p>
+                <p>&nbsp;&nbsp;<b>나이:</b> 21살</p>
+                <p>&nbsp;&nbsp;<b>학번:</b> 20202710</p>
+                <p>&nbsp;&nbsp;<b>instagram:</b><a href="https://www.instagram.com/u_gyeong_60/" onclick="return query()">&nbsp;유경이의 인스타 계정</a> </p>
+                <label for="favorite-select"> &nbsp;&nbsp;<b>favorite</b> :</label>
+                <select id="favorite-select">
+                    <optgroup label="음식">
+                        <option value="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%ED%8C%8C%EC%8A%A4%ED%83%80&oquery=%EC%83%A4%EC%9D%B4%EB%8B%88&tqi=hKwtvwprvmZss5plmiwssssssOC-287465">파스타</option>
+                        <option value="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EC%9C%A1%ED%9A%8C">육회</option>
+                        <option value="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%EC%82%BC%EA%B2%B9%EC%82%B4&oquery=%EC%9C%A1%ED%9A%8C&tqi=hKxftdp0JXVsst6zGcsssssstUC-026133">삼겹살</option>
+                        </optgroup>
+                        <optgroup label="가수">
+                            <option value="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%EC%83%A4%EC%9D%B4%EB%8B%88&oquery=%ED%99%9C%EC%9A%A9&tqi=hKYPwlprvN8ssROPvhVssssssLZ-129474">샤이니</option>
+                            <option value="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=BTS&oquery=%ED%8C%8C%EC%8A%A4%ED%83%80&tqi=hKwtalprvN8ssRDbv0Kssssss2N-514479">BTS</option>
+                            <option value="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%ED%83%9C%EC%97%B0&oquery=%EC%82%BC%EA%B2%B9%EC%82%B4&tqi=hKxfZsp0Yihss7wWuSlssssst0l-311521">태연</option>
+                        </optgroup>
+                        </select>
+                        <p><button onclick="load()">접속</p>
+        </p>
+    </div><br>
+   
+        <h2><b onmouseover="this.style.backgroundColor='rgb(255, 231, 127)'"
+            onmouseout="this.style.backgroundColor='white'">About Me...<button onclick="change()">누르세요</button></b></h2>
+        <p>&nbsp;&nbsp;저는 2001년 02월 16일 <span>익산</span>에서 태어났습니다.</p>
+        <p>&nbsp;&nbsp;평범한 인문계 고등학교를 나왔고, 대학교에 들어와 <span>처음 프로그래밍</span>을 해봤습니다.<br>
+            &nbsp;&nbsp;아직 경험이 부족해 실력이 그렇게 좋진 않지만 좋은 코딩 실력을 가지기 위해 항상 <span><b>최선</b></span>을 다하고 있습니다.</p>
+        <p>&nbsp;&nbsp;이번 학기도 열심히 배우고 실력을 키우기 위해 열심히 <span>노력</span>하겠습니다! </p>  
+   
+       <h2><b onmouseover="this.style.backgroundColor='rgb(255, 231, 127)'"
+        onmouseout="this.style.backgroundColor='white'">interestings</b></h2> 
+           <ul>
+               <li>유튜브 보기</li>
+               <li>기차여행</li>
+               <li>노래 듣기</li><audio src="Images/조정석-01-아로하-슬기로운 의사생활 OST Part 3-192.mp3" controls ="controls"></audio>
+           </ul>
+      
+
+        
+       <h2><b onmouseover="this.style.backgroundColor='rgb(255, 231, 127)'"
+        onmouseout="this.style.backgroundColor='white'">배운 전공 과목</h2></b>
+                <ol>
+                    <li>C언어</li>
+                    <li>JAVA</li>
+                    <li>HTML</li>
+                    <li>이산수학</li>
+                </ol>
+ 
+
+
+    
+
+        <h2><b onmouseover="this.style.backgroundColor='rgb(255, 231, 127)'"
+            onmouseout="this.style.backgroundColor='white'">2021년 1학기 시간표</b></h2>
+        <table border="1">
+            <tr>
+                <th></th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+            </tr>
+            <tr>
+                <td>1교시</td>
+                <td><div class=web>웹프로그래밍</td></div>
+                <td><div class=data>데이터 구조</td></div>
+                <td><div class=ai>AI기술과 미래사회</td></div>
+                <td><div class=program>모바일 프로그래밍1</td></div>
+                <td> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
+            </tr>
+            <tr>
+                <td>2교시</td>
+                <td><div class=web>웹프로그래밍</td></div>
+                <td></td>
+                <td><div class=ai>AI기술과 미래사회</td></div>
+                <td><div class=program>모바일프로그래밍1</td></div>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3교시</td>
+                <td><div class=movie>영화로만나는인문학</td></div>
+                <td></td>
+                <td><div class=java>JAVA</td></div>
+                <td><div class=env>생태계와 환경</td></div>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4교시</td>
+                <td><div class=movie>영화로만나는인문학</td></div>
+                <td></td>
+                <td><div class=web>웹프로그래밍</td></div>
+                <td><div class=env>생태계와 환경</td></div>
+                <td></td>
+            </tr>
+            <tr>
+                <td>5교시</td>
+                <td><div class=math>이산수학</td></div>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>6교시</td>
+                <td><div class=math>이산수학</td></div>
+                <td><div class=math>이산수학</td></div>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>7교시</td>
+                <td></td>
+                <td><div class=java>JAVA</td></div>
+                <td></td>
+                <td><div class=data>데이터구조</td></div>
+                <td></td>
+            </tr>
+            <tr>
+                <td>8교시</td>
+                <td></td>
+                <td><div class=java>JAVA</td></div>
+                <td></td>
+                <td><div class=data>데이터구조</td></div>
+                <td></td>
+            </tr> 
+        </table>
+    </article>
+
+    <input type="checkbox" id="menuicon">
+    <label for="menuicon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    <div class="sidebar">
+        <br>
+        <h3>&nbsp컴퓨터소프트웨어공학과 INTRODUCE</h3>
+        <iframe width="400" height="315" src="https://www.youtube.com/embed/hgBABsf_8fg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h3>&nbsp원광대학교 위치</h3>
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1568.559660233724!2d126.95225314087764!3d35.97035353026294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357015527a316527%3A0x37f3a7800fd9ee31!2z7JuQ6rSR64yA7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1616371729772!5m2!1sko!2skr" width="400" height="200" style="border:5;" allowfullscreen="" loading="lazy"></iframe>
+
+    </div>
+
+
+        
+    
+    <br>
+    <hr>
+
+        
+</body>
+</html>
